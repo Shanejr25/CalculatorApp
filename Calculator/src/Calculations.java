@@ -6,7 +6,16 @@ public class Calculations {
 	public Calculations() {
 		
 	}
-	
+	// determine the priority of the operand found
+	public int Priority(char operand) {
+		// lowest priority
+		if (operand == '+' || operand == '-') {
+			return 2;
+		} else if (operand == '*' || operand == '/') {
+			
+		} else 
+		return 0;
+	}
 	// method to dissect the input line and figures out what to calculate first
 	public String findCalculation(String line) {
 		return line;
