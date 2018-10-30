@@ -9,11 +9,7 @@ public class Main {
 		// create new scanner and other variables
 		Scanner keyboard = new Scanner(System.in);
 		String input = "";
-		String output = "";
-		
-		// create the stacks for operands and numbers
-		Stack<Character> operands = new Stack<Character>();
-		Stack<Double> values = new Stack<Double>();
+		double output;
 		
 		System.out.println("Hello! Welcome to the calculator app. \n"
 				+ "What would you like to calculate? ");
@@ -24,6 +20,6 @@ public class Main {
 		
 		Calculations cal = new Calculations();
 		output = cal.findCalculation(input);
-		System.out.println("Result: "+ output);
+		System.out.println("Result: "+ Double.parseDouble(output.toString()));
 	}
 }

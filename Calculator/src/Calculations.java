@@ -18,11 +18,12 @@ public class Calculations {
     } 
 	
 	// method to dissect the input line and figures out what to calculate first
-	public String findCalculation(String line) {
+	public double findCalculation(String line) {
 		
 		// create the stacks for operands and numbers
 		Stack<Character> operands = new Stack<Character>();
 		Stack<Double> values = new Stack<Double>();
+		
 		StringBuffer buff = new StringBuffer();
 		
 		// convert the line into a character array to test for operands
@@ -50,7 +51,8 @@ public class Calculations {
 					else {
 						break;
 					} // end else
-					
+				}
+			}
 					// check for the beginning of a calculation
 					else if (tokens[i] == '(') {
 						operands.push(tokens[i]);
@@ -60,40 +62,37 @@ public class Calculations {
 						// loop until another parenthesis is encountered
 						while (operands.peek() != '(') {
 							// push a number to the number stack as the result
-							values.push();
+							values.push(Calculate(values.pop(), values.pop(), operands.pop()));
 						}
 					}
 					
 				} // end for loop
-				
-			}// end else if
-		} // end outer for loop
 		
-		
-		return line;
+		return values.pop();
 	}
 	// method used to calculate the result
-	public double Calculate(long num1, long num2, String operator) {
+	public double Calculate(double num1, double num2, char operator) {
 			
-		if (operator.equals("+")) {
+		if (operator == ('+')) {
 			return num1 + num2;
-		} else if (operator.equals("*")) {
+		} else if (operator == ('*')) {
 			return num1 * num2;
-		} else if (operator.equals("-")) {
+		} else if (operator == ('-')) {
 			return num1 - num2;
-		} else if (operator.equals("/")) {
+		} else if (operator == ('/')) {
 			 if (num2 == 0) {
 				 System.out.println("Cannot divide by 0!");
 				 System.exit(0);
 			 }
 			return num1 / num2;
-		} else if (operator.equals("^")) {
-			return Math.pow(num1, num2);
+		} else if (operator == ('^')) {
+			return (long) Math.pow(num1, num2);
 		} else if (num2 == 0){
 			return 0;
 		} else {
 			// print a statement stating that the input is wrong
 			System.out.println("Using an unknown input, calculation cannot be completed!");
+			System.out.println(0);
 		}
 		return 0;
 	}
