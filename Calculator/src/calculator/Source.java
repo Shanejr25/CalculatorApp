@@ -5,6 +5,8 @@
  */
 package calculator;
 
+import com.sun.corba.se.spi.orbutil.fsm.Input;
+
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,15 +21,11 @@ public class Source extends Application {
     
     // create the scene on startup
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        try {
-                Parent root = FXMLLoader.load(getClass().getResource("ui.fxml"));
-                Scene scene = new Scene(root);
-                primaryStage.setScene(scene);
-                primaryStage.show();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+    public void start(Stage primaryStage) throws Exception{
+
+            Parent root = FXMLLoader.load(getClass().getResource("/calculator/ui.fxml"));
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
     }
 
     /**
