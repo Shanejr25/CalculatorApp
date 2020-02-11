@@ -8,14 +8,17 @@ public class Calculator {
 	
 	// main driver function
      public static void main (String [] args) 
-     { 
-        System.out.println("Enter an equation: ");
-        tokenGenerator token = new tokenGenerator(); 
-        token.getNextToken(); 
-        Evaluate express = new Evaluate(token); 
-        int result = express.operandAddSub(); 
-        System.out.println ("= " + result); 
-    	
+     {  
+          while (true) {
+               System.out.println("Enter an equation or press q to quit: ");
+               tokenGenerator token = new tokenGenerator(); 
+               token.getNextToken(); 
+               Evaluate express = new Evaluate(token); 
+               int result = express.operandAddSub(); 
+               System.out.println ("= " + result + "\n");
+                
+          }
+               
      } // end of main method 
 } // end of Calculator class
 
@@ -185,7 +188,8 @@ class Evaluate {
                     System.out.print("Error, missing right parenthesis!"); 
                }
           } else {
-               System.out.print("Error! Invalid. Tokens "); 
+               System.out.print("Error! Invalid. Tokens ");
+               System.exit(0); 
           }
           return output; 
      }  
