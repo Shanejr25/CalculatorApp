@@ -1,4 +1,2 @@
 # CalculatorApp
-Calculator program 
-
-https://creately.com/app/# (work in progress)
+Calculator program in Java
